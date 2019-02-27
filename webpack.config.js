@@ -24,6 +24,7 @@ module.exports = {
         rules: [ //所有第三方加载器的匹配规则，使用正则方法
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
             //配置处理第三方.css文件的第三方loader规则，并以从右到左的方式匹配
+            { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }, // 处理 scss 文件的 loader
             { test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=7631&name=[hash:8]-[name].[ext]' },
             //通过url-loader处理的图片，会被自动转成base64格式的字符串，如果有不需要自动转换的需要在后面加上参数，使用?和&传递
             //limit给定的值是图片的大小，单位是byte，如果给定的图片大于或等于给定的limit值，则不会被转为base64格式的字符串，为防止重名图片名字会被改变

@@ -3,7 +3,9 @@
         <!-- 顶部 header 区域 -->
         <mt-header fixed title="vue商城"></mt-header>
         <!-- 中间的路由 router-view 区域 -->
-
+        <transition>
+            <router-view></router-view>
+        </transition>
         <!-- 底部 Tabbar 区域 -->
         <nav class="mui-bar mui-bar-tab">
             <router-link class="mui-tab-item" to="/home">
@@ -35,10 +37,25 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .app-container {
   padding-top: 40px;
   overflow-x: hidden;
+}
+.v-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+  position: absolute;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
 }
 </style>
 
