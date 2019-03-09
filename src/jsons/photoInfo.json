@@ -1,0 +1,10 @@
+{
+    "photoImg": [
+        { "title": "夜景", "src": "../../photoImg/3.jpg", "msrc": "../../photoImg/3.jpg", "alt": "这是一片夜景", "w": "600", "h": "400" },
+        { "title": "蓝天", "src": "../../photoImg/5.jpg", "msrc": "../../photoImg/2.jpg", "alt": "这是一片蓝天", "w": "600", "h": "400" },
+        { "title": "高楼", "src": "../../photoImg/6.jpg", "msrc": "../../photoImg/6.jpg", "alt": "这是一片高楼", "w": "600", "h": "400" }
+    ],
+    "photoInfo": [
+        { "id": 1, "name": "张七", "title": "夜景", "img_url": "../../photoImg/3.jpg", "summary": "这是一片夜景", "add_time": "2019.03.06 09:00:03" }
+    ]
+}

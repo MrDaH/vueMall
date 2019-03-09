@@ -1,46 +1,67 @@
 <template>
     <div>
         <!-- 轮播图区域 -->
-        <mt-swipe :auto="4000">
-        <!-- 在组件中，使用v-for循环的话，一定要使用 key -->
-            <mt-swipe-item><img src="../../image/lun1.jpg" alt=""></mt-swipe-item>
-            <mt-swipe-item><img src="../../image/lun2.jpg" alt=""></mt-swipe-item>
-        </mt-swipe>
+        <!-- 调用轮播图组件 -->
+        <swiper :lunbotuList="lunbotuList" :isFull="true"></swiper>
 
-        <!-- 九宫格 到 6宫格 的改造工程 -->
+        <!-- 6宫格 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                    <img src="../../image/menu1.png" alt="">
-                    <div class="mui-media-body">新闻资讯</div></a></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                    <img src="../../image/menu2.png" alt="">
-                    <div class="mui-media-body">图片分享</div></a></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                    <img src="../../image/menu3.png" alt="">
-                    <div class="mui-media-body">商品购买</div></a></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                    <img src="../../image/menu4.png" alt="">
-                    <div class="mui-media-body">留言反馈</div></a></li>
-            <!-- <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                    <img src="../../image/menu5.png" alt="">
-                    <div class="mui-media-body">视频专区</div></a></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                    <img src="../../image/menu6.png" alt="">
-                    <div class="mui-media-body">联系我们</div></a></li> -->
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+              <router-link to="/home/newList">
+                <img src="../../image/menu1.png" alt="">
+                <div class="mui-media-body">商城论坛</div>
+              </router-link>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+              <router-link to="/home/photoList">
+                <img src="../../image/menu2.png" alt="">
+                <div class="mui-media-body">图片分享</div>
+              </router-link>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+              <router-link to="/home/goodsList">
+                <img src="../../image/menu3.png" alt="">
+                <div class="mui-media-body">商品购买</div>
+              </router-link>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+              <a href="#" @click.prevent='jump'>
+                <img src="../../image/menu4.png" alt="">
+                <div class="mui-media-body">留言反馈</div>
+              </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+              <a href="#" @click.prevent='jump'>
+                <img src="../../image/menu5.png" alt="">
+                <div class="mui-media-body">视频专区</div>
+              </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+              <a href="#" @click.prevent='jump'>
+                <img src="../../image/menu6.png" alt="">
+                <div class="mui-media-body">联系我们</div>
+              </a>
+            </li>
         </ul> 
     </div>
 </template>
 
 <script>
-import { Toast } from "mint-ui";
+import { Toast } from "mint-ui"
+import swiper from '../subcomponents/swipe.vue'
+
 
 export default {
   data() {
     return {
-      lunbotuList: [] // 保存轮播图的数组
+      lunbotuList: [
+        { "url": "1", "img": "../../image/lun1.jpg" },
+        { "url": "2", "img": "../../image/lun2.jpg" }
+      ] // 保存轮播图的数组
     };
   },
   created() {
+    //页面加载时就要调用轮播图的方法，以达到页面打开后即有轮播图
     // this.getLunbotu();
   },
   methods: {
@@ -57,32 +78,17 @@ export default {
     //     }
     //   });
     // }
+    jump() {
+      Toast("该模块暂未开放")
+    }
+  },
+  components: {
+    swiper
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe {
-  height: 600px;
-
-  .mint-swipe-item {
-    &:nth-child(1) {
-      background-color: red;
-    }
-    &:nth-child(2) {
-      background-color: blue;
-    }
-    &:nth-child(3) {
-      background-color: cyan;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
 .mui-grid-view.mui-grid-9 {
   background-color: #fff;
   border: none;

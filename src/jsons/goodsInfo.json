@@ -1,0 +1,17 @@
+{
+    "goodsInfo": [
+
+        {
+            "id": 1,
+            "title": "小米",
+            "img": "http://img.xiazaizhijia.com/uploads/2018/0831/20180831054952864.jpg",
+            "add_time": "2019.03.06 09:00",
+            "market_price": "3000",
+            "sell_price": "2199",
+            "stock_quantity": "60",
+            "goods_no": "SD52169535"
+        }
+
+    ]
+
+}
